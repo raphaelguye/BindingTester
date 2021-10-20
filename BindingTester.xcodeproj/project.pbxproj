@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5340153C27204CDB00B78C26 /* SheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53715E4D27203976003D61C5 /* SheetViewModel.swift */; };
 		53715E4E27203976003D61C5 /* SheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53715E4D27203976003D61C5 /* SheetViewModel.swift */; };
 		53715E50272039AA003D61C5 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53715E4F272039AA003D61C5 /* SheetView.swift */; };
 		53F18D11271D564F00369A15 /* BindingTesterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F18D10271D564F00369A15 /* BindingTesterApp.swift */; };
@@ -230,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5340153C27204CDB00B78C26 /* SheetViewModel.swift in Sources */,
 				53F18D3E271D56AD00369A15 /* SheetViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
