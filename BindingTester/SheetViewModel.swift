@@ -5,7 +5,7 @@ class SheetViewModel: ObservableObject {
 
   @Binding var isPresented: Bool
 
-  init(isPresented: Binding<Bool> = .constant(false)) {
+  init(isPresented: Binding<Bool>) {
     _isPresented = isPresented
   }
 

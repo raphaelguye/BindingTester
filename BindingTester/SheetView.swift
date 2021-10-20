@@ -25,6 +25,6 @@ struct SheetView: View {
 
 struct SheetView_Previews: PreviewProvider {
   static var previews: some View {
-    SheetView(viewModel: SheetViewModel())
+    SheetView(viewModel: SheetViewModel(isPresented: .constant(true)))
   }
 }

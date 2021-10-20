@@ -4,13 +4,13 @@ import SwiftUI
 
 struct RootView: View {
 
-  @State var isSheetPresented: Bool = false
+  @State var isSheetDisplayed: Bool = false
 
   var body: some View {
     content
-      .sheet(isPresented: $isSheetPresented) {} content: {
+      .sheet(isPresented: $isSheetDisplayed) {} content: {
         SheetView(
-          viewModel: SheetViewModel(isPresented: $isSheetPresented)
+          viewModel: SheetViewModel(isPresented: $isSheetDisplayed)
         )
       }
 
@@ -18,7 +18,7 @@ struct RootView: View {
 
   private var content: some View {
     Button("Open Sheet") {
-      isSheetPresented = true
+      isSheetDisplayed = true
     }
   }
 }
