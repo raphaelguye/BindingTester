@@ -1,13 +1,8 @@
 import Foundation
-import SwiftUI
 
 class SheetViewModel: ObservableObject {
 
-  @Binding var isPresented: Bool
-
-  init(isPresented: Binding<Bool>) {
-    _isPresented = isPresented
-  }
+  @Published var isPresented: Bool = true
 
   func onClose() {
     isPresented = false

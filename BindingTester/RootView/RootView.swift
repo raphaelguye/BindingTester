@@ -10,7 +10,8 @@ struct RootView: View {
     content
       .sheet(isPresented: $isSheetDisplayed) {} content: {
         SheetView(
-          viewModel: SheetViewModel(isPresented: $isSheetDisplayed)
+          viewModel: SheetViewModel(),
+          isPresented: $isSheetDisplayed
         )
       }
 
