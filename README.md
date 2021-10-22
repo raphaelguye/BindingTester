@@ -1,5 +1,8 @@
 # BindingTester
-Trying to implement Unit Tests for ```@Binding``` properties in a ViewModel
+
+Implementing Unit Test for ```@Binding``` properties in a ViewModel.<br/>
+The initial problem was that we can't use ```@Binding``` or ```@State``` outside of SwiftUI.
+We had to find a way to test it.
 
 ### ViewModel to be tested
 
@@ -9,14 +12,29 @@ class SheetViewModel: ObservableObject {
   @Binding var isPresented: Bool
   
   func onClose() {
-    isPresented = false // To be unit tested
+    isPresented = false // To be tested
   }
   
   init(isPresented: Binding<Bool>) {
     _isPresented = isPresented
 ```
+
+### ✅ Working solution for unit test
+
+```
+func testWithBindingSetter() {
+  var bindingValue = true
+  let binding = Binding(get: { bindingValue }, set: { bindingValue = $0 })
   
-### Unit tests try out - not working
+  let viewModel = SheetViewModel(isPresented: binding)
+
+  XCTAssertTrue(bindingValue)
+  viewModel.onClose()
+  XCTAssertFalse(bindingValue)
+}
+```
+  
+### ❌ First try out - not working
 
 ```
 func test1() {
@@ -24,7 +42,7 @@ func test1() {
 
   XCTAssertTrue(viewModel.isPresented)
   viewModel.onClose()
-  XCTAssertFalse(viewModel.isPresented)
+  XCTAssertFalse(viewModel.isPresented) // remains true
 }
 ```
 
@@ -35,7 +53,7 @@ func test2() {
 
   XCTAssertTrue(viewModel.isPresented)
   viewModel.onClose()
-  XCTAssertFalse(viewModel.isPresented)
+  XCTAssertFalse(viewModel.isPresented) // remains true
 }
 ```
 
@@ -46,6 +64,6 @@ func test3() {
 
   XCTAssertTrue(viewModel.isPresented)
   viewModel.onClose()
-  XCTAssertFalse(viewModel.isPresented)
+  XCTAssertFalse(viewModel.isPresented) // remains true
 }
 ```
